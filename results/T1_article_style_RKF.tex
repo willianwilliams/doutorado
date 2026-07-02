@@ -1,0 +1,26 @@
+\begin{table}[!t]
+\centering
+\caption{Comparison of synchronization performance metrics using RKF5 with state-dependent tolerances.}
+\label{tab:t1_article_style_rkf}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{c|ccc|ccc}
+\hline
+Error & \multicolumn{3}{c|}{Proposed Method} & \multicolumn{3}{c}{Method in [85]} \\
+ & ST (s) & RMSE & SSE & ST (s) & RMSE & SSE \\
+\hline
+$e_1$ & 0.039 & 0.476 & 0.274 & 0.003 & 0.165 & 0.130 \\
+$e_2$ & 0.127 & 0.537 & 0.193 & 0.001 & 0.053 & 0.009 \\
+$e_3$ & 0.140 & 0.313 & 0.109 & 0.002 & 0.032 & 0.005 \\
+$e_4$ & 0.024 & 0.180 & 0.040 & 0.001 & 0.044 & 0.009 \\
+$e_5$ & 1.744 & 0.937 & 0.755 & 1.706 & 0.809 & 0.649 \\
+$e_6$ & 0.234 & 0.413 & 0.236 & 0.002 & 0.054 & 0.032 \\
+Mean & 0.385 & 0.476 & 0.268 & 0.286 & 0.193 & 0.139 \\
+\hline
+\end{tabular}
+
+\vspace{1mm}
+\begin{minipage}{0.95\linewidth}
+\footnotesize
+ST denotes settling time. RMSE and SSE were computed over the post-settling interval $[ST_i,T_e]$, with $T_e=1.920\,\mathrm{s}$. The settling tolerance is $\varepsilon=3$ for all error states. The digital message was disabled for this synchronization-metric table. Entries shown as -- did not satisfy the strict settling rule before $T_e$.
+\end{minipage}
+\end{table}

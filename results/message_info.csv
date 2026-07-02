@@ -1,0 +1,14 @@
+field,value
+message_word,Secure Transmission
+n_chars,19
+n_bits_char,7
+n_bits,133
+bit_rate,69.0
+bit_period,0.014492753623188406
+message_duration,1.9275362318840579
+message_start_time,0.0
+message_amplitude,1.0
+metric_T_eval,1.92
+metric_final_window_start,1.8199999999999998
+metric_final_window_end,1.92
+ber_transient_cut,0.4
