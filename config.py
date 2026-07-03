@@ -19,8 +19,8 @@ class Config:
     # Metric horizon and windows
     t_eval: float = 1.920
     final_window_delta: float = 0.100
-    epsilon_st: float = 1.0
-    epsilon_e5: float = 2.0
+    epsilon_st: float = 3.0
+    epsilon_e5: float = 3.0
     table1_epsilon_st: float = 3.0
     table1_epsilon_e5: float = 3.0
 

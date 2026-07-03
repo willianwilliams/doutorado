@@ -20,8 +20,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--out", default="results", help="Output folder.")
     parser.add_argument("--jam", default="", help="Optional MATLAB JAM.mat path with variable b_noise. Defaults to ./JAM.mat.")
     parser.add_argument("--h1", type=float, default=0.8, help="Disturbance/jamming gain h_1.")
-    parser.add_argument("--epsilon", type=float, default=1.0, help="Settling tolerance epsilon for e1, e2, e3, e4, and e6.")
-    parser.add_argument("--epsilon-e5", type=float, default=2.0, help="Settling tolerance epsilon for e5 in Table 3.")
+    parser.add_argument("--epsilon", type=float, default=3.0, help="Settling tolerance epsilon for e1, e2, e3, e4, and e6 in Table 3.")
+    parser.add_argument("--epsilon-e5", type=float, default=3.0, help="Settling tolerance epsilon for e5 in Table 3.")
     parser.add_argument("--table1-epsilon", type=float, default=3.0, help="Settling tolerance epsilon for all states in Table 1.")
     parser.add_argument("--table1-epsilon-e5", type=float, default=3.0, help="Settling tolerance epsilon for e5 in Table 1.")
     parser.add_argument("--t-final", type=float, default=2.0, help="Simulation final time.")
@@ -79,10 +79,11 @@ def main() -> int:
     print(f"Numba available: {NUMBA_AVAILABLE}")
     print(f"h={cfg.h:.12g} | h_euler={cfg.h_euler:.12g} | T_final={cfg.t_final:.6g} | T_eval={cfg.t_eval:.6g}")
     print(f"final window=[{cfg.final_window_start:.6g}, {cfg.t_eval:.6g}] | Delta={cfg.final_window_delta:.6g}")
-    print(
-        f"h1={cfg.h1:g} | T1 epsilon={cfg.table1_epsilon_st:g} for all states | "
-        f"T3 epsilon={cfg.epsilon_st:g} for e1-e4,e6 | T3 epsilon_e5={cfg.epsilon_e5:g} | output={cfg.output_dir}"
-    )
+    if cfg.epsilon_st == cfg.epsilon_e5:
+        t3_epsilon_text = f"T3 epsilon={cfg.epsilon_st:g} for all states"
+    else:
+        t3_epsilon_text = f"T3 epsilon={cfg.epsilon_st:g} for e1-e4,e6 | T3 epsilon_e5={cfg.epsilon_e5:g}"
+    print(f"h1={cfg.h1:g} | T1 epsilon={cfg.table1_epsilon_st:g} for all states | {t3_epsilon_text} | output={cfg.output_dir}")
     print(f"theta0_reference=zeros(8)")
     print(f"message={cfg.message_word!r} | chars={len(cfg.message_word)} | bits={cfg.message_bits} | bit_rate={cfg.bit_rate:g} | duration={cfg.message_duration:.9f} s")
     print("============================================================")

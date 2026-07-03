@@ -8,7 +8,7 @@ tables:
 - final window `[1.820, 1.920] s`
 - `Delta = 0.1 s`
 - Table 1: `epsilon = 3` for `e1`, `e2`, `e3`, `e4`, `e5`, and `e6`
-- Table 3: `epsilon_5 = 2` for `e5`
+- Table 3: `epsilon = 3` for `e1`, `e2`, `e3`, `e4`, `e5`, and `e6`
 - `h_1 = 0.8`
 - `theta0_reference = zeros(8)`
 - message `"Secure Transmission"` with 19 characters and 133 bits

@@ -140,6 +140,7 @@ def compute_table3(cfg: Config, b_noise: np.ndarray, method: str) -> dict:
         "message_word": cfg.message_word,
         "epsilon": cfg.epsilon_st,
         "epsilon_e5": cfg.epsilon_e5,
+        "epsilon_by_state": cfg.epsilon_by_state,
     }
     print(f"[Table 3] {label}: finished in {table['runtime_s']:.2f} s")
     return table
@@ -323,7 +324,7 @@ def export_table3(table: dict, out_dir: Path) -> None:
     lines = [
         "\\begin{table*}[!t]",
         "\\centering",
-        f"\\caption{{Gain sensitivity using {table['method']}, $T_e={table['T_eval']:.3f}\\,\\mathrm{{s}}$, $\\Delta={table['final_window_delta']:.3f}\\,\\mathrm{{s}}$, $\\varepsilon_5={table['epsilon_e5']:.3g}$, and message {table['message_word']}.}}",
+        f"\\caption{{Gain sensitivity using {table['method']}, $T_e={table['T_eval']:.3f}\\,\\mathrm{{s}}$, $\\Delta={table['final_window_delta']:.3f}\\,\\mathrm{{s}}$, {epsilon_caption(table)}, and message {table['message_word']}.}}",
         "\\begin{tabular}{c|cccccc}",
         "\\hline",
         "$k$ & $\\overline{ST}$ (s) & $\\overline{RMSE}_e$ & $\\overline{SSE}_e$ & $E_{res}$ & $\\max |u(t)|$ & $RMSE_m$ \\\\",
